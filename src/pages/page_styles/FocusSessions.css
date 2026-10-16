@@ -1,0 +1,272 @@
+#focus-session-component {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: white;
+}
+
+.focus-session-subtitle,
+.focus-session-history-subtitle {
+  color: hsl(0, 0%, 70%);
+  font-size: 14px;
+}
+
+#focus-session-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(220px, 1fr);
+  gap: 20px;
+}
+
+#focus-timer-card,
+.focus-stat-card,
+.focus-session-entry {
+  background: hsl(0, 0%, 10%);
+  border: 1px solid cyan;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 0 8px hsla(180, 100%, 50%, 0.12);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+#focus-timer-card:hover,
+.focus-stat-card:hover,
+.focus-session-entry:hover {
+  box-shadow: 0 0 14px hsla(180, 100%, 50%, 0.25);
+}
+
+#focus-timer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.focus-card-label {
+  color: lime;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+#focus-timer-display {
+  font-size: clamp(48px, 7vw, 76px);
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 2px;
+  color: cyan;
+  text-shadow: 0 0 12px hsla(180, 100%, 50%, 0.4);
+}
+
+#focus-timer-status {
+  color: white;
+  font-size: 14px;
+  min-height: 18px;
+}
+
+#focus-duration-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 240px;
+  text-align: left;
+}
+
+#focus-duration-control label,
+#focus-session-note-form label {
+  font-size: 13px;
+  color: white;
+}
+
+#focus-duration,
+#focus-session-note {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid magenta;
+  border-radius: 8px;
+  background: hsl(0, 0%, 20%);
+  color: white;
+  font: inherit;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+#focus-duration:focus,
+#focus-session-note:focus {
+  box-shadow: 0 0 10px hsla(300, 100%, 50%, 0.35);
+}
+
+#focus-timer-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.focus-button {
+  padding: 11px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.focus-button:hover {
+  transform: scale(1.2);
+}
+
+.focus-start-button {
+  background: hsl(0, 0%, 10%);
+  border-color: lime;
+  color: lime;
+}
+
+.focus-start-button:hover {
+  box-shadow:
+    0px 0px 10px lime,
+    inset 0px 0px 10px lime;
+}
+
+.focus-pause-button {
+  background: hsl(0, 0%, 10%);
+  border-color: cyan;
+  color: cyan;
+}
+
+.focus-pause-button:hover {
+  box-shadow:
+    0px 0px 10px cyan,
+    inset 0px 0px 10px cyan;
+}
+
+.focus-finish-button {
+  background: hsl(0, 0%, 10%);
+  border-color: magenta;
+  color: magenta;
+}
+
+.focus-finish-button:hover {
+  box-shadow:
+    0px 0px 10px magenta,
+    inset 0px 0px 10px magenta;
+}
+
+.focus-discard-button {
+  background: hsl(0, 0%, 20%);
+  border-color: red;
+  color: red;
+}
+.focus-discard-button:hover {
+  box-shadow:
+    0px 0px 10px red,
+    inset 0px 0px 10px red;
+}
+
+#focus-session-note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+}
+
+#focus-session-note {
+  resize: vertical;
+  min-height: 90px;
+}
+
+#focus-session-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.focus-stat-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.focus-stat-card h2 {
+  font-size: 32px;
+  color: lime;
+  text-shadow: 0 0 10px hsla(90, 100%, 50%, 0.3);
+}
+
+.focus-stat-card > p:last-child {
+  font-size: 13px;
+  color: white;
+}
+
+#focus-session-history {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#focus-session-history > h2 {
+  font-size: 20px;
+  color: white;
+}
+
+#focus-session-empty {
+  padding: 28px;
+  text-align: center;
+  border: 1px dashed cyan;
+  border-radius: 12px;
+  background: hsl(0, 0%, 10%);
+  color: white;
+}
+
+#focus-session-empty p + p {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+#focus-session-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.focus-session-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-wrap: anywhere;
+  border-color: magenta;
+}
+
+.focus-session-entry-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.focus-session-entry-top h3 {
+  font-size: 15px;
+  font-weight: normal;
+  color: white;
+}
+
+.focus-session-entry-top span {
+  flex-shrink: 0;
+  color: cyan;
+  font-size: 13px;
+  text-shadow: 0 0 8px hsla(180, 100%, 50%, 0.25);
+}
+
+.focus-session-entry > p {
+  color: hsl(0, 0%, 70%);
+  font-size: 12px;
+}

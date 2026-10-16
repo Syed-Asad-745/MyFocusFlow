@@ -1,0 +1,8 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+  background-color: hsl(0, 0%, 10%);
+  color: white;
+  padding: 12px;
+  gap: 12px;
+}

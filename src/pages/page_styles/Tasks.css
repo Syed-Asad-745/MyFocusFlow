@@ -1,0 +1,127 @@
+#tasks-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#task-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid magenta;
+  border-radius: 12px;
+  box-shadow:
+    0px 0px 10px magenta,
+    inset 0px 0px 10px magenta;
+  width: 100vw;
+  max-width: 40vw;
+  margin: 24px;
+  padding: 24px;
+  text-align: center;
+}
+
+.task-form-inputs {
+  text-align: center;
+  background: hsl(0, 0%, 20%);
+  width: 80%;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  padding: 12px 0px;
+  outline: none;
+  color: white;
+  margin-bottom: 24px;
+  margin-top: 6px;
+}
+
+#task-form-submit-button {
+  font-size: 1rem;
+  padding: 12px 36px;
+  background: hsl(0, 0%, 10%);
+  border: 1px solid lime;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  color: limegreen;
+  transition: 0.2s ease;
+}
+#task-form-submit-button:hover {
+  transform: scale(1.2);
+  box-shadow:
+    0px 0px 10px lime,
+    inset 0px 0px 10px lime;
+}
+
+.rendered-task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid magenta;
+  border-radius: 12px;
+  box-shadow:
+    0px 0px 8px magenta,
+    inset 0px 0px 8px magenta;
+  width: 100vw;
+  max-width: 60vw;
+  padding: 24px;
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+.rendered-task.completed {
+  background: rgb(0, 38, 0);
+  border: 1px solid lime;
+  box-shadow:
+    0px 0px 8px lime,
+    inset 0px 0px 8px lime;
+}
+.rendered-task.completed .task-data {
+  text-decoration: line-through;
+}
+
+.moving-buttons,
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.move-task-up-button,
+.move-task-down-button,
+.edit-task-button,
+.delete-task-button,
+.mark-task-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  background-color: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.move-task-up-button:hover,
+.move-task-down-button:hover,
+.edit-task-button:hover,
+.delete-task-button:hover,
+.mark-task-button:hover {
+  text-shadow: 0px 0px 8px white;
+  transform: scale(1.5);
+}
+.edit-task-button,
+.delete-task-button {
+  padding-top: 8px;
+}
+
+.task-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 8px;
+}
