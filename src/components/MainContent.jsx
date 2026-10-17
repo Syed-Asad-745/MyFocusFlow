@@ -5,7 +5,6 @@ import Dashboard from "../pages/Dashboard.jsx";
 import Tasks from "../pages/Tasks.jsx";
 import Habits from "../pages/Habits.jsx";
 import FocusSessions from "../pages/FocusSessions.jsx";
-import Analytics from "../pages/Analytics.jsx";
 import Settings from "../pages/Settings.jsx";
 import NotFound from "../pages/NotFound.jsx";
 
@@ -19,7 +18,6 @@ export default function MainContent() {
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/habits" element={<Habits />} />
           <Route path="/focus-sessions" element={<FocusSessions />} />
-          <Route path="/analytics" element={<Analytics />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

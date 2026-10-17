@@ -105,6 +105,7 @@ export default function FocusSession() {
 
   useEffect(() => {
     localStorage.setItem("focusSessions", JSON.stringify(sessions));
+    window.dispatchEvent(new Event("focusflow-updated"));
   }, [sessions]);
 
   function formatTime(seconds) {

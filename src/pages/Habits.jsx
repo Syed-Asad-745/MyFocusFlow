@@ -70,6 +70,7 @@ export default function Habits() {
 
   useEffect(() => {
     localStorage.setItem("habits", JSON.stringify(habits));
+    window.dispatchEvent(new Event("focusflow-updated"));
   }, [habits]);
 
   let today = getTodayDate();

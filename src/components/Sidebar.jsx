@@ -19,9 +19,6 @@ export default function Sidebar() {
         <NavLink className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")} to="/focus-sessions">
           Focus Session
         </NavLink>
-        <NavLink className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")} to="/analytics">
-          Analytics
-        </NavLink>
         <NavLink className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")} to="/settings" id="settings">
           Settings
         </NavLink>

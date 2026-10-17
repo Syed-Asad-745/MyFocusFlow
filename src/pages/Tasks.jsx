@@ -96,6 +96,7 @@ export default function Tasks() {
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    window.dispatchEvent(new Event("focusflow-updated"));
   }, [tasks]);
 
   return (

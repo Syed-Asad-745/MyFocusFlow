@@ -23,11 +23,6 @@ export default function Header() {
       paragraph: "Run and track focus sessions for insights.",
     },
 
-    "/analytics": {
-      title: "Analytics",
-      paragraph: "Track your progress and discover your patterns.",
-    },
-
     "/settings": {
       title: "Settings",
       paragraph: "Customize FocusFlow to fit your workflow.",
