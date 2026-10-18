@@ -1,8 +1,9 @@
 .app {
   display: flex;
   min-height: 100vh;
-  background-color: hsl(0, 0%, 10%);
-  color: white;
+  background-color: var(--app-bg);
+  color: var(--text-color);
   padding: 12px;
   gap: 12px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }

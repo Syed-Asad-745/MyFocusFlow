@@ -9,11 +9,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px solid magenta;
+  background: hsl(0, 0%, 15%);
+  border: 1px solid hsl(0, 0%, 25%);
   border-radius: 12px;
-  box-shadow:
-    0px 0px 10px magenta,
-    inset 0px 0px 10px magenta;
   width: 100vw;
   max-width: 40vw;
   margin: 24px;
@@ -38,19 +36,19 @@
 #task-form-submit-button {
   font-size: 1rem;
   padding: 12px 36px;
-  background: hsl(0, 0%, 10%);
-  border: 1px solid lime;
+  background:transparent;
+  border: 1px solid magenta;
   border-radius: 12px;
   margin-bottom: 12px;
   cursor: pointer;
-  color: limegreen;
+  color: magenta;
   transition: 0.2s ease;
 }
 #task-form-submit-button:hover {
   transform: scale(1.2);
   box-shadow:
-    0px 0px 10px lime,
-    inset 0px 0px 10px lime;
+    0px 0px 10px magenta,
+    inset 0px 0px 10px magenta;
 }
 
 .rendered-task {
@@ -59,9 +57,6 @@
   align-items: center;
   border: 1px solid magenta;
   border-radius: 12px;
-  box-shadow:
-    0px 0px 8px magenta,
-    inset 0px 0px 8px magenta;
   width: 100vw;
   max-width: 60vw;
   padding: 24px;
@@ -71,9 +66,6 @@
 .rendered-task.completed {
   background: rgb(0, 38, 0);
   border: 1px solid lime;
-  box-shadow:
-    0px 0px 8px lime,
-    inset 0px 0px 8px lime;
 }
 .rendered-task.completed .task-data {
   text-decoration: line-through;
@@ -124,4 +116,9 @@
   margin-left: auto;
   margin-right: auto;
   gap: 8px;
+}
+
+#task-description {
+  font-size: 1.5rem;
+  text-shadow: 0px 0px 4px white;
 }

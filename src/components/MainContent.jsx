@@ -8,10 +8,10 @@ import FocusSessions from "../pages/FocusSessions.jsx";
 import Settings from "../pages/Settings.jsx";
 import NotFound from "../pages/NotFound.jsx";
 
-export default function MainContent() {
+export default function MainContent({ theme, toggleTheme }) {
   return (
     <div className="main-area">
-      <Header />
+      <Header theme={theme} toggleTheme={toggleTheme} />{" "}
       <div className="main-content">
         <Routes>
           <Route path="/" element={<Dashboard />} />

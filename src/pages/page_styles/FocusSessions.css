@@ -20,20 +20,13 @@
 #focus-timer-card,
 .focus-stat-card,
 .focus-session-entry {
-  background: hsl(0, 0%, 10%);
-  border: 1px solid cyan;
+  background: hsl(0, 0%, 15%);
+  border: 1px solid hsl(0, 0%, 25%);
   border-radius: 14px;
   padding: 24px;
-  box-shadow: 0 0 8px hsla(180, 100%, 50%, 0.12);
   transition:
     border-color 0.25s ease,
     box-shadow 0.25s ease;
-}
-
-#focus-timer-card:hover,
-.focus-stat-card:hover,
-.focus-session-entry:hover {
-  box-shadow: 0 0 14px hsla(180, 100%, 50%, 0.25);
 }
 
 #focus-timer-card {
@@ -45,10 +38,10 @@
 }
 
 .focus-card-label {
-  color: lime;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 1.5px;
+  color: magenta;
 }
 
 #focus-timer-display {
@@ -56,8 +49,6 @@
   font-weight: bold;
   font-variant-numeric: tabular-nums;
   letter-spacing: 2px;
-  color: cyan;
-  text-shadow: 0 0 12px hsla(180, 100%, 50%, 0.4);
 }
 
 #focus-timer-status {
@@ -118,20 +109,17 @@
   transition: 0.2s ease;
 }
 
-.focus-button:hover {
-  transform: scale(1.2);
-}
-
 .focus-start-button {
-  background: hsl(0, 0%, 10%);
-  border-color: lime;
-  color: lime;
+  background: transparent;
+  border-color: magenta;
+  color: magenta;
 }
 
 .focus-start-button:hover {
+  transform: scale(1.2);
   box-shadow:
-    0px 0px 10px lime,
-    inset 0px 0px 10px lime;
+    0px 0px 10px magenta,
+    inset 0px 0px 10px magenta;
 }
 
 .focus-pause-button {
@@ -141,6 +129,7 @@
 }
 
 .focus-pause-button:hover {
+  transform: scale(1.2);
   box-shadow:
     0px 0px 10px cyan,
     inset 0px 0px 10px cyan;
@@ -153,6 +142,7 @@
 }
 
 .focus-finish-button:hover {
+  transform: scale(1.2);
   box-shadow:
     0px 0px 10px magenta,
     inset 0px 0px 10px magenta;
@@ -198,7 +188,7 @@
 
 .focus-stat-card h2 {
   font-size: 32px;
-  color: lime;
+  color: white;
   text-shadow: 0 0 10px hsla(90, 100%, 50%, 0.3);
 }
 

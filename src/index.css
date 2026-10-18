@@ -3,10 +3,268 @@
   padding: 0;
   margin: 0;
   scrollbar-width: thin;
-  scrollbar-color: hsl(0, 0%, 20%) hsl(0, 0%, 10%);
+}
+
+:root {
+  color-scheme: dark;
+  --app-bg: hsl(0, 0%, 10%);
+  --panel-bg: hsl(0, 0%, 13%);
+  --panel-raised: hsl(0, 0%, 17%);
+  --input-bg: hsl(0, 0%, 20%);
+  --border-color: hsl(0, 0%, 23%);
+  --border-strong: hsl(0, 0%, 32%);
+  --text-color: hsl(0, 0%, 90%);
+  --heading-color: hsl(0, 0%, 96%);
+  --muted-color: hsl(0, 0%, 62%);
+  --scrollbar-thumb: hsl(0, 0%, 30%);
+  --scrollbar-track: hsl(0, 0%, 12%);
+  --modal-backdrop: rgb(0, 0, 0, 0.72);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --app-bg: hsl(0, 0%, 96%);
+  --panel-bg: hsl(0, 0%, 100%);
+  --panel-raised: hsl(0, 0%, 94%);
+  --input-bg: hsl(0, 0%, 98%);
+  --border-color: hsl(0, 0%, 84%);
+  --border-strong: hsl(0, 0%, 72%);
+  --text-color: hsl(0, 0%, 15%);
+  --heading-color: hsl(0, 0%, 8%);
+  --muted-color: hsl(0, 0%, 40%);
+  --scrollbar-thumb: hsl(0, 0%, 72%);
+  --scrollbar-track: hsl(0, 0%, 94%);
+  --modal-backdrop: rgb(25, 25, 25, 0.45);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
 }
 
 body {
-  background: hsl(0, 0%, 10%);
+  background: var(--app-bg);
+  color: var(--text-color);
   font-family: sans-serif;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+* {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+:root[data-theme="light"] .app,
+:root[data-theme="light"] .main-area,
+:root[data-theme="light"] .main-content {
+  color: var(--text-color);
+}
+
+:root[data-theme="light"] .sidebar {
+  background: var(--panel-bg);
+  box-shadow:
+    0 0 12px lime,
+    inset 0 0 12px lime;
+}
+
+:root[data-theme="light"] .app-title {
+  color: hsl(0, 0%, 10%);
+}
+
+:root[data-theme="light"] .nav-link {
+  color: var(--text-color);
+}
+
+:root[data-theme="light"] .nav-link.active {
+  background: var(--panel-raised);
+  color: var(--heading-color);
+}
+
+:root[data-theme="light"] .header,
+:root[data-theme="light"] .main-content {
+  background: var(--panel-bg);
+  text-shadow: none;
+}
+
+:root[data-theme="light"] .header #header-title,
+:root[data-theme="light"] .header #header-paragraph {
+  color: var(--heading-color);
+  text-shadow: none;
+}
+
+:root[data-theme="light"] #dashboard-component,
+:root[data-theme="light"] #focus-session-component,
+:root[data-theme="light"] #settings-page {
+  color: var(--text-color);
+}
+
+:root[data-theme="light"] .dashboard-stat-card,
+:root[data-theme="light"] .dashboard-panel,
+:root[data-theme="light"] .analytics-page .panel,
+:root[data-theme="light"] .settings-danger-card,
+:root[data-theme="light"] .settings-about-card,
+:root[data-theme="light"] .settings-info-list {
+  background: var(--panel-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+:root[data-theme="light"] .dashboard-stat-card h2,
+:root[data-theme="light"] .dashboard-panel h2,
+:root[data-theme="light"] .dashboard-session-entry h3,
+:root[data-theme="light"] .dashboard-task-entry h3,
+:root[data-theme="light"] .analytics-page-heading h1,
+:root[data-theme="light"] .analytics-chart-heading h3,
+:root[data-theme="light"] .analytics-stat-card strong,
+:root[data-theme="light"] .settings-section-heading h2,
+:root[data-theme="light"] .settings-danger-card h3,
+:root[data-theme="light"] .settings-about-content h3 {
+  color: var(--heading-color);
+}
+
+:root[data-theme="light"] .dashboard-panel-subtitle,
+:root[data-theme="light"] .dashboard-progress-label,
+:root[data-theme="light"] .dashboard-session-entry p,
+:root[data-theme="light"] .dashboard-task-entry p,
+:root[data-theme="light"] .dashboard-stat-card > p:last-child,
+:root[data-theme="light"] .dashboard-focus-panel > p:last-child,
+:root[data-theme="light"] .analytics-description,
+:root[data-theme="light"] .analytics-stat-label,
+:root[data-theme="light"] .analytics-stat-card p,
+:root[data-theme="light"] .analytics-chart-heading p,
+:root[data-theme="light"] .analytics-axis-label,
+:root[data-theme="light"] .settings-section-heading p,
+:root[data-theme="light"] .settings-danger-card p,
+:root[data-theme="light"] .settings-about-content p,
+:root[data-theme="light"] .settings-privacy-note,
+:root[data-theme="light"] .settings-info-list span {
+  color: var(--muted-color);
+}
+
+:root[data-theme="light"] .analytics-grid-line {
+  stroke: var(--border-color);
+}
+
+:root[data-theme="light"] #task-form,
+:root[data-theme="light"] #habit-form,
+:root[data-theme="light"] .rendered-task,
+:root[data-theme="light"] .rendered-habit,
+:root[data-theme="light"] #focus-timer-card,
+:root[data-theme="light"] .focus-stat-card,
+:root[data-theme="light"] .focus-session-entry {
+  background-color: var(--panel-bg);
+}
+
+:root[data-theme="light"] .task-form-inputs,
+:root[data-theme="light"] .habit-form-inputs,
+:root[data-theme="light"] #focus-duration,
+:root[data-theme="light"] #focus-session-note {
+  background: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+:root[data-theme="light"] #task-form label,
+:root[data-theme="light"] #habit-form label,
+:root[data-theme="light"] #focus-duration-control label,
+:root[data-theme="light"] #focus-session-note-form label,
+:root[data-theme="light"] #focus-timer-status,
+:root[data-theme="light"] #focus-session-history > h2,
+:root[data-theme="light"] .focus-session-entry-top h3,
+:root[data-theme="light"] .focus-stat-card > p:last-child {
+  color: var(--text-color);
+  text-shadow: none;
+}
+
+:root[data-theme="light"] .settings-confirmation-modal {
+  background: var(--panel-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+:root[data-theme="light"] .settings-confirmation-modal > p {
+  color: var(--muted-color);
+}
+
+:root[data-theme="light"] .settings-cancel-button {
+  background: var(--panel-raised);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+:root[data-theme="light"] .settings-modal-backdrop {
+  background: var(--modal-backdrop);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Shared light-mode overrides for existing task, habit, and focus-session layouts. */
+:root[data-theme="light"] #tasks-component,
+:root[data-theme="light"] #habits-component {
+  color: var(--text-color);
+}
+:root[data-theme="light"] #tasks-component h2,
+:root[data-theme="light"] #habits-component h2,
+:root[data-theme="light"] #task-form label,
+:root[data-theme="light"] #habit-form label {
+  color: var(--heading-color);
+  text-shadow: none;
+}
+:root[data-theme="light"] .task-form-inputs,
+:root[data-theme="light"] .habit-form-inputs {
+  background: var(--input-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+:root[data-theme="light"] .rendered-task,
+:root[data-theme="light"] .rendered-habit {
+  background-color: var(--panel-bg);
+  color: var(--text-color);
+  text-shadow: none;
+}
+:root[data-theme="light"] .rendered-task.completed,
+:root[data-theme="light"] .rendered-habit.completed {
+  background: hsl(85, 50%, 92%);
+  color: hsl(100, 50%, 18%);
+}
+:root[data-theme="light"] .move-task-up-button,
+:root[data-theme="light"] .move-task-down-button,
+:root[data-theme="light"] .edit-task-button,
+:root[data-theme="light"] .delete-task-button,
+:root[data-theme="light"] .mark-task-button,
+:root[data-theme="light"] .mark-habit-button,
+:root[data-theme="light"] .delete-habit-button {
+  color: var(--text-color);
+}
+:root[data-theme="light"] #focus-timer-card,
+:root[data-theme="light"] .focus-stat-card,
+:root[data-theme="light"] .focus-session-entry,
+:root[data-theme="light"] #focus-session-empty {
+  background: var(--panel-bg);
+  color: var(--text-color);
+}
+:root[data-theme="light"] .focus-session-subtitle,
+:root[data-theme="light"] .focus-session-history-subtitle,
+:root[data-theme="light"] .focus-session-entry > p {
+  color: var(--muted-color);
+}
+:root[data-theme="light"] #focus-session-empty {
+  border-color: hsl(185, 80%, 42%);
 }

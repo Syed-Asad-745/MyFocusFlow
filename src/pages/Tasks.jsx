@@ -148,7 +148,7 @@ export default function Tasks() {
               </button>
             </div>
             <div className="task-data">
-              <p>{task.description}</p>
+              <p id="task-description">{task.description}</p>
               <p>
                 Priority: {task.priority} | Category: {task.category}
               </p>

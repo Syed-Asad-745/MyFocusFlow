@@ -34,20 +34,29 @@ export default function Dashboard() {
   });
 
   useEffect(() => {
-    function handleStorageChange() {
-      let loadedTasks = localStorage.getItem("tasks");
-      let loadedHabits = localStorage.getItem("habits");
-      let loadedSessions = localStorage.getItem("focusSessions");
-
-      setTasks(loadedTasks ? JSON.parse(loadedTasks) : []);
-      setHabits(loadedHabits ? JSON.parse(loadedHabits) : []);
-      setSessions(loadedSessions ? JSON.parse(loadedSessions) : []);
+    function readArray(key) {
+      try {
+        const value = JSON.parse(localStorage.getItem(key) || "[]");
+        return Array.isArray(value) ? value : [];
+      } catch {
+        return [];
+      }
     }
 
-    window.addEventListener("storage", handleStorageChange);
+    function refreshData() {
+      setTasks(readArray("tasks"));
+      setHabits(readArray("habits"));
+      setSessions(readArray("focusSessions"));
+    }
+
+    window.addEventListener("storage", refreshData);
+    window.addEventListener("focusflow-updated", refreshData);
+    window.addEventListener("focus", refreshData);
 
     return () => {
-      window.removeEventListener("storage", handleStorageChange);
+      window.removeEventListener("storage", refreshData);
+      window.removeEventListener("focusflow-updated", refreshData);
+      window.removeEventListener("focus", refreshData);
     };
   }, []);
 
@@ -84,7 +93,7 @@ export default function Dashboard() {
   let completionPercentage = tasks.length > 0 ? Math.round((completedTasks / tasks.length) * 100) : 0;
 
   let completedHabits = habits.filter((habit) => {
-    return habit.completedDates.includes(today);
+    return Array.isArray(habit.completedDates) && habit.completedDates.includes(today);
   }).length;
 
   let habitPercentage = habits.length > 0 ? Math.round((completedHabits / habits.length) * 100) : 0;
@@ -229,7 +238,7 @@ export default function Dashboard() {
         )}
       </section>
 
-      <Analytics />
+      <Analytics embedded />
     </div>
   );
 }

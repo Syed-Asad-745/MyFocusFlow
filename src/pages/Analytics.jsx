@@ -234,7 +234,7 @@ function LineChart({ title, subtitle, data, color, suffix = "%", maxValue = 100 
   );
 }
 
-export default function Analytics() {
+export default function Analytics({ embedded = false }) {
   const [tasks, setTasks] = useState(() => readStorage(STORAGE_KEYS.tasks));
   const [habits, setHabits] = useState(() => readStorage(STORAGE_KEYS.habits));
   const [sessions, setSessions] = useState(() => readStorage(STORAGE_KEYS.sessions));
@@ -268,15 +268,26 @@ export default function Analytics() {
 
   return (
     <main className="analytics-page">
-      <header className="analytics-page-heading">
-        <div>
-          <p className="analytics-eyebrow">YOUR PROGRESS</p>
-          <h1>Analytics</h1>
-          <p className="analytics-description">Understand your consistency, productivity, and focus.</p>
-        </div>
-
-        <span className="analytics-period">LAST 7 DAYS</span>
-      </header>
+      {!embedded && (
+        <header className="analytics-page-heading">
+          <div>
+            <p className="analytics-eyebrow">YOUR PROGRESS</p>
+            <h1>Analytics</h1>
+            <p className="analytics-description">Understand your consistency, productivity, and focus.</p>
+          </div>
+          <span className="analytics-period">LAST 7 DAYS</span>
+        </header>
+      )}
+      {embedded && (
+        <header className="analytics-page-heading dashboard-weekly-heading">
+          <div>
+            <p className="analytics-eyebrow">YOUR PROGRESS</p>
+            <h2>Weekly progress</h2>
+            <p className="analytics-description">Understand your consistency, productivity, and focus.</p>
+          </div>
+          <span className="analytics-period">LAST 7 DAYS</span>
+        </header>
+      )}
 
       <section className="analytics-stats-grid">
         <article className="analytics-stat-card panel lime-stat">
