@@ -119,6 +119,7 @@
 }
 
 .dashboard-focus-panel {
+  height: 100%;
   border-top: 2px solid hsl(185, 100%, 50%);
   align-self: start;
 }
